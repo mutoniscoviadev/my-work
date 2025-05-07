@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report an Incident - Community Safety Portal</title>
+
+  <!-- Bootstrap CSS (added) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* Custom body styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: #fff;  /* White text */
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(46, 58, 89, 0.85);
+      padding: 1.2em 2em;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      display: flex;
+      font-size: 1.8rem;
+      font-weight: bold;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .logo-community { color: #ffcc00; }
+    .logo-safety { color: #ffffff; }
+    .logo-portal { color: #00d4ff; }
+
+    nav.main-nav {
+      display: flex;
+      gap: 2em;
+      justify-content: center;
+      flex: 1;
+      flex-wrap: wrap;
+      padding: 1em 0; /* increased vertical space */
+    }
+
+    nav.main-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav.main-nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      padding: 3em;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      border-radius: 8px;
+      margin: 2em 1em;
+      max-width: 800px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #ffcc00;
+    }
+
+    .form-container {
+      margin-top: 2em;
+      text-align: left;
+    }
+
+    label {
+      font-size: 1.1rem;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8em;
+      margin-bottom: 1.2em;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: #ffcc00;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff9900;
+    }
+
+    .form-message {
+      font-size: 1rem;
+      margin-top: 1em;
+      color: #ffcc00;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(34, 34, 34, 0.8);
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      main {
+        padding: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-flex">
+      <div class="brand-logo">
+        <span class="logo-community">Community</span>
+        <span class="logo-safety">Safety</span>
+        <span class="logo-portal">Portal</span>
+      </div>
+
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="alerts.html">Crime Alerts</a>
+        <a href="tips.html">Safety Tips</a>
+        <a href="report.html">Report/Contact</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2>Report an Incident</h2>
+
+    <p>If you have witnessed or experienced an incident related to safety or crime, please use the form below to report it. Your report will help keep the community safe.</p>
+
+    <div class="form-container">
+      <form id="reportForm" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="incidentType" class="form-label">Incident Type</label>
+          <select id="incidentType" name="incidentType" class="form-select" required>
+            <option value="suspicious">Suspicious Activity</option>
+            <option value="crime">Crime</option>
+            <option value="vandalism">Vandalism</option>
+            <option value="theft">Theft</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="invalid-feedback">Please select an incident type.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location of Incident</label>
+          <input type="text" id="location" name="location" class="form-control" placeholder="e.g., 123 Main St, Community Park" required />
+          <div class="invalid-feedback">Please enter the location of the incident.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Incident Description</label>
+          <textarea id="description" name="description" class="form-control" rows="4" placeholder="Describe what happened..." required></textarea>
+          <div class="invalid-feedback">Please provide a description of the incident.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="evidence" class="form-label">Upload Evidence (Optional)</label>
+          <input type="file" id="evidence" name="evidence" class="form-control" accept="image/*, video/*" />
+        </div>
+
+        <button type="submit" class="btn btn-warning">Submit Report</button>
+      </form>
+
+      <div class="form-message" id="formMessage"></div>
+    </div>
+  </main>
+
+  
+    <footer>
+        <p>&copy; 2025 Community Safety Network</p>
+        <p><a href="contact_us.html" class="footer-link">Contact Us</a></p>
+    </footer>
+
+  <!-- Bootstrap JS (added for validation and features) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+  <!-- Custom script for form validation -->
+  <script>
+    // Form validation using Bootstrap's built-in validation
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+
+    document.getElementById('reportForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const incidentType = document.getElementById('incidentType').value;
+      const location = document.getElementById('location').value;
+      const description = document.getElementById('description').value;
+
+      // Simulate report submission (replace with actual form submission code or backend integration)
+      document.getElementById('formMessage').textContent = 'Thank you for your report! We will review the information and take necessary action.';
+
+      // Clear the form after submission (optional)
+      document.getElementById('reportForm').reset();
+    });
+  </script>
+</body>
+</html>

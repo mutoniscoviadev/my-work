@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Community Safety</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e3a59;
+            color: white;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 1em;
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        h2 {
+            color: #2e3a59;
+            font-size: 1.8em;
+        }
+
+        .contact-container {
+            background-color: #fff;
+            padding: 2em;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        form {
+            margin-top: 1em;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.7em;
+            margin-bottom: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2e3a59;
+            color: white;
+            padding: 0.7em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            margin-top: 2em;
+            font-size: 1.2em;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 3em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contact Community Safety</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="alerts.html">Crime Alerts</a>
+            <a href="tips.html">Safety Tips</a>
+            <a href="report.html">Report/Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Get in Touch with Us</h2>
+        <p>If you have any questions, feedback, or need assistance, please don't hesitate to reach out. Fill out the form below, or you can contact us directly using the phone number provided.</p>
+
+        <div class="contact-container">
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h3>Prefer to Call?</h3>
+            <p>If you'd rather speak with us directly, you can reach us by phone at:</p>
+            <p><strong><a href="tel:+447888899674">0788899674</a>  or <a href="911">911</a></strong></p>
+            <p>We're available during business hours (9 AM - 6 PM).</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Community Safety Network</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! We will get back to you as soon as possible.");
+            this.reset(); // Reset form after submission
+        });
+    </script>
+
+</body>
+</html>

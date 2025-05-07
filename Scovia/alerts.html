@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Alerts - Community Safety</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e3a59;
+            color: white;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 1em;
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        h2 {
+            color: #2e3a59;
+            font-size: 1.8em;
+        }
+
+        .alert-list {
+            margin-top: 2em;
+        }
+
+        .alert-item {
+            background-color: #fff;
+            margin-bottom: 1.5em;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .alert-item h3 {
+            color: #2e3a59;
+        }
+
+        .alert-item p {
+            color: #555;
+            font-size: 1em;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 3em;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Community Crime Alerts</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="alerts.html">Crime Alerts</a>
+            <a href="tips.html">Safety Tips</a>
+            <a href="report.html">Report/Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Recent Crime Alerts</h2>
+        <div class="alert-list" id="alertList">
+            <!-- Alerts will be dynamically added here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Community Safety Network</p>
+        <p><a href="contact_us.html" class="footer-link">Contact Us</a></p>
+    </footer>
+
+    <script>
+        // Example alerts (in a real-world scenario, this data would come from an API)
+        const crimeAlerts = [
+            { title: "Break-In Reported", description: "A break-in was reported at 10th Street. Suspect still on the loose. Stay alert.", time: "10 mins ago" },
+            { title: "Robbery Attempt", description: "A robbery attempt occurred near Park Avenue. Suspect was arrested.", time: "1 hour ago" },
+            { title: "Suspicious Activity Near Market", description: "Suspicious individuals seen near the Market. Authorities are investigating.", time: "3 hours ago" },
+            { title: "Car Theft in Residential Area", description: "A car was stolen from a residential area near 5th Avenue. Please report any suspicious activity.", time: "5 hours ago" },
+            { title: "Community Patrol Scheduled", description: "A community patrol has been scheduled for tonight at 8 PM. Please stay vigilant.", time: "12 hours ago" }
+        ];
+
+        window.onload = () => {
+            const alertList = document.getElementById('alertList');
+            crimeAlerts.forEach(alert => {
+                const alertItem = document.createElement('div');
+                alertItem.classList.add('alert-item');
+                alertItem.innerHTML = `
+                    <h3>${alert.title}</h3>
+                    <p>${alert.description}</p>
+                    <small>${alert.time}</small>
+                `;
+                alertList.appendChild(alertItem);
+            });
+        };
+    </script>
+
+</body>
+</html>
